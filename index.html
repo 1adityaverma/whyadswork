@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Whyadswork?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap">
+<style>
+:root{--bg:#fff;--fg:#000;--mute:rgba(0,0,0,.58);--line:rgba(0,0,0,.14);--cr:#b0102f;--pu:#4c1d95;--nb:#0b1f4d;--ff:"Libre Baskerville",Baskerville,"Baskerville Old Face",Georgia,"Times New Roman",serif;--mono:var(--ff);--serif:var(--ff);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:#fff;color:#000}
+body{margin:0;background:#fff;color:#000;font-family:var(--ff);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font-family:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid #000;outline-offset:3px}
+p{margin:0 0 22px}
+h1{font:600 clamp(28px,4vw,42px)/1.12 var(--serif);letter-spacing:-.025em;margin:0 0 14px}
+.tag{display:inline-flex;align-items:center;gap:7px;margin:0 0 28px;font-size:14px;color:var(--mute);line-height:1}
+.tag svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round}
+.main a{text-decoration-color:var(--cr);text-underline-offset:3px}
+
+#app{display:grid;grid-template-columns:300px minmax(0,1fr);grid-template-rows:auto 1fr;min-height:100vh}
+#hd{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;padding:22px 28px 14px;border-bottom:2px solid #000;margin-bottom:28px}
+#brand{text-decoration:none;font:700 clamp(26px,3.4vw,38px)/1 var(--serif);letter-spacing:-.03em}#brand span{color:var(--cr)}
+.hr{display:flex;align-items:baseline;gap:20px;font:12px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em}.hr i{font-style:normal;color:var(--mute)}.hr a{text-underline-offset:4px;text-decoration-color:var(--cr);text-decoration-thickness:2px}
+#sb{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:0 24px 40px 28px}
+#sb .lk a{display:block;padding:7px 0 7px 10px;border-left:3px solid transparent;color:#555;text-decoration:none;font-weight:500;line-height:1.35}
+#sb .lk a:hover{color:#000}#sb .lk a.on{color:#000;font-weight:700;border-left-color:var(--cr)}
+.abt{margin-top:34px}
+.gp h4{margin:22px 0 4px;font:700 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--mute)}
+.fb{display:flex;align-items:center;gap:11px;width:100%;padding:9px 0;border:0;border-bottom:1px solid var(--line);background:none;font:inherit;font-size:15px;color:#000;text-align:left;cursor:pointer}
+.fb i{flex:none;width:12px;height:12px;border:2px solid var(--c)}.fb[aria-pressed=true]{font-weight:700}.fb[aria-pressed=true] i{background:var(--c)}
+.main{padding:56px clamp(20px,5vw,64px) 120px;max-width:760px}
+.main.hm{max-width:none;padding:0 28px 80px 8px}
+
+/* thumbnail cards */
+#cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:34px 26px;align-items:start}
+.cd{position:relative;display:block;min-height:160px;overflow:hidden;color:#000;text-decoration:none;cursor:pointer;border:2px solid #000;background:#111;transition:transform .15s,box-shadow .15s}
+.cd:hover,.cd:focus-visible{transform:translate(-4px,-4px);box-shadow:6px 6px 0 var(--c)}
+.cd>img{display:block;width:100%;height:auto;min-height:160px;object-fit:cover}
+.ov{position:absolute;inset:0;padding:24px 18px;background:#0b1f4d;color:#fff;opacity:0;transition:opacity .18s}
+.cd:hover .ov,.cd:focus-visible .ov{opacity:1}
+.ov h3{margin:0;font:700 22px/1.2 var(--serif);letter-spacing:-.015em;color:#fff}
+.ov .by{margin:8px 0 0;font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.85)}
+.ov .mt{margin:14px 0 0;font:11px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.75)}
+@media(hover:none){.cd{background:#0b1f4d}.ov{position:static;opacity:1;padding:14px 16px 16px;background:#0b1f4d}.ov h3{font-size:20px}.ov .mt{display:none}}
+.cd.ni{min-height:230px}.cd.ni .ov{opacity:1;background:linear-gradient(rgba(11,31,77,.95),rgba(11,31,77,.95))}
+
+/* inside an ad: video on top (left on wide screens) stays put while the text scrolls */
+.bm{flex:none;background:var(--nb);color:#fff;border-bottom:2px solid #000}
+.vf{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+.vf img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.vf iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vf .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font:12px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.75);background:var(--nb)}
+.mr{flex:1 1 0;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;font-size:16px;line-height:1.7}
+.mh{padding:24px 26px 0}.mh h1{margin:0 0 12px;font-size:clamp(22px,2.4vw,28px)}.mh .tag{margin:0 0 20px}
+.bx{padding:0 26px 34px}.bx.pt{padding-top:26px}
+.bt{margin:0 0 18px;font:700 clamp(20px,2.2vw,24px)/1.25 var(--serif);letter-spacing:-.015em}
+.bx .st{margin:30px 0 8px;font:700 16.5px/1.4 var(--serif)}.bx .st:first-child{margin-top:0}
+.bx p{margin:0 0 18px}.bx p:last-child{margin-bottom:0}
+.bx .br{margin:0 0 22px;padding-bottom:16px;border-bottom:2px solid #000;font-weight:600;overflow-wrap:anywhere}
+.bx .ag{margin-top:30px;padding-top:20px;border-top:2px solid #000;font-weight:600;overflow-wrap:anywhere}
+
+@media(max-width:860px){.abt{max-width:320px}#app{grid-template-columns:minmax(0,1fr)}#hd{padding:16px;margin-bottom:16px}.hr i{display:none}#sb{position:static;max-height:none;padding:0 16px 16px}.main.hm{padding:0 16px 60px}#sb .lk{display:flex;overflow-x:auto;gap:14px}#sb .lk a{white-space:nowrap}.main{padding-top:36px}}
+
+/* ad window over the home page */
+[hidden]{display:none!important}
+.md{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;overflow:hidden;background:rgba(11,31,77,.5);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);padding:calc(env(safe-area-inset-top,0px) + 60px) 10px calc(env(safe-area-inset-bottom,0px) + 14px);animation:mfi .18s ease-out}
+.mp{display:flex;flex-direction:column;width:100%;max-width:720px;height:calc(100vh - 90px);height:calc(100dvh - 90px);max-height:900px;background:#fff;border:2px solid #000;box-shadow:6px 6px 0 var(--pu);outline:0;animation:mup .2s ease-out}
+#mc{flex:1;min-height:0;display:flex;flex-direction:column}
+.mx{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:12px;z-index:2;width:40px;height:40px;padding:0;border:2px solid #000;background:#fff;color:#000;font:700 22px/1 var(--ff);cursor:pointer}.mx:hover{background:#000;color:#fff}
+@keyframes mfi{from{opacity:0}to{opacity:1}}
+@keyframes mup{from{transform:translateY(14px)}to{transform:none}}
+@media(min-width:820px){.md{padding:64px 28px 28px}.mp{max-width:1180px;height:min(calc(100vh - 110px),720px);height:min(calc(100dvh - 110px),720px);box-shadow:8px 8px 0 var(--pu)}#mc{flex-direction:row}.bm{flex:1.6 1 0;display:flex;align-items:center;border-bottom:0;border-right:2px solid #000}.mr{flex:1 1 0;min-width:340px}}
+@media(prefers-reduced-motion:reduce){.md,.mp{animation:none}}
+</style></head><body>
+<div id="app"><header id="hd"><a id="brand" href="#">Whyadswork<span>?</span></a><div class="hr"><a href="mailto:adityavermaworkid@gmail.com">Email</a><a href="https://www.linkedin.com/in/adityanverma" target="_blank" rel="noopener">LinkedIn</a></div></header><aside id="sb"></aside><main id="main" class="main"></main></div>
+<div id="md" class="md" role="dialog" aria-modal="true" hidden><button type="button" class="mx" aria-label="Close">×</button><div id="mp" class="mp" tabindex="-1"><div id="mc"></div></div></div>
+<script>
+/* Add a new ad by adding one object to this list. v = video embed link (e.g. a YouTube /embed/ link), img = thumbnail image. */
+var BEST=[{
+ m:'i',
+ t:'A Minimalist in the world of “Tadakta, bhadkta”',
+ br:'Borosil',
+ by:'Sideways, from the sideways.',
+ v:'',
+ img:'borosil.jpg',
+ w:['The minimalism and the colour contrast used, is to point the obvious that is doing the “job” here.',
+    'The background music theme, at creatively strategic points to highlight the words/visual elements is done well.',
+    'Then, the obvious, which is often not done well, in a “product” ad, is showing the product in action—the utility. Which shows the journey of left over food and utensils. Using a casual teasing everyday indian tone, which is far too relatable to the indian senses.'],
+ ag:['Sideways','https://sideways.co.in/work/designed-for-a-better-you']
+},{
+ m:'g',
+ t:'BEST AD EVER!?',
+ br:'Squatty Potty',
+ by:'',
+ nh:1,
+ v:'https://www.youtube.com/embed/YbYWhdLO43Q?rel=0',
+ img:'squatty_potty.jpg',
+ w:['Wittiness. Self consciousness. Social proof. Charm. Product’s utility being visible. Product’s name itself being funny, rememberful.',
+    'Might be the best creative direction and writing i have seen. In an ad.'],
+ ag:['Harmon Brothers','https://harmonbrothers.com/','','- ']
+},{
+ m:'g',
+ t:'Send Noodes',
+ br:'Kraft Mac & Cheese',
+ by:'',
+ v:'',
+ img:'noods.jpg',
+ w:['1) A Woman talking about something “socially uncomfortable”. Especially something mildly related to sexuality.',
+    '2) “While send noods” gets your attention. Hyper Exaggeration and deliberate awkward delivery at key points, keeps you there and directs your attention towards the brand.',
+    '3) Saying a mispronounced word to make fun of something, is a seventh grader thing, that we all liked.'],
+ ag:['Mischief Agency','https://mischiefusa.com/work/send-noods','']
+},{
+ m:'g',
+ t:'Drudgery called Work',
+ br:'Coinbase',
+ by:'',
+ nh:1,
+ v:'https://www.youtube.com/embed/0V4CCxskN_0?si=BML_o3BnOxEt85Km',
+ img:'coinbase.jpg',
+ w:['#1. Saying the pain out loud',
+    'Saying the pain of professionalism (standing in line) and corporate trauma. Out loud.',
+    '(Even if this pain or frustration with work culture is too common, something we hear every day, the symbolic representation of it through a character still outshines the daily ears the topic catches.)',
+    '#2. The familiar opening',
+    'The initial curiosity is developed by an open-world game infrastructure, which is familiar to most eyes. (Humans prefer habit, familiar things.) “Here we go again” is the guiding force: the classic GTA San Andreas opening line, where CJ, the main character, falls off the bike and addresses the forthcoming familiar but chaotic monotony of the crime world, after being thrown out by the police upon landing back in his hometown.',
+    'I assume the work world isn’t different from the same.',
+    '#3. Music and cadence',
+    'Background music via creative direction. The cadence and flow are paced as the narrative itself paces. Even the lyrical meaning follows it: the musician first introspects and only at the end realises he needs to be free, which is what the visual narrative was.',
+    '#4. Words held back',
+    'I love that there are no major words except a single use at the end, for the single communicated idea. NPCs and side characters still talk, which highlights how little inner voice is allowed when you are in that environment of dark buildings. Only the outside talks.',
+    '#5. Leaving as continuation',
+    'I personally wouldn’t say the ending, or the person leaving the system itself, was a catalyst but a continuation. The first combination, the visual representation of “open world game and corporate drudgery,” tells you the schedule of a normal dude too, who plays games to numb the pain after coming home. Here, though, as it is a fantasy, the day ends with the narrator finding a way to leave the system altogether.',
+    '#6. The structure underneath',
+    'Make an enemy. Show how they are a problem. And then give them your solution at last.',
+    '“Your” (personalization) way out of “their” (good cop, bad cop) system.'],
+ ag:['Isle of any, agency','https://isleofany.com/','',': ']
+},{
+ m:'g',
+ t:'A celebrity “story”',
+ br:'FIGS',
+ by:'',
+ nh:1,
+ v:'https://www.youtube.com/embed/v-njJeHk44Y?si=ZGxzmJOmDneATiKO',
+ img:'figs.jpg',
+ w:['#1) A story to tell.',
+    'A serious one, of fractal recovery—said in a rather simple way.',
+    'Use of the classic introducing people, in sitcoms and diaries—“So here’s my roommate…”, which we are familiar with, so it isn’t too strange after the not-so-common visuals of bone X-rays. Balancing the contrast sharply.',
+    '#2. Use understated/used elements:',
+    'Emphasis on human moments like “gasp of overwhelm”, which is highlighted by a continuation of grit. So, inspirational.',
+    '#3. When the rules say, “make a small 2-word tagline for the ad”, you go 9 words.',
+    'An interesting idea here is: doctors don’t make bodies, but rebuild them, let’s say.',
+    'Especially using “build” gives more authority in the mix.'],
+ ag:['Mother London, Agency','https://www.motherlondon.com/work/figs-team-usa','','- ']
+}];
+
+/* The static card about me, pinned in the left margin. Put your photo's file name (or link) in img. */
+var ABOUT={about:1,t:'who’s this guy?',img:'aditya.jpg',
+ w:['Aditya here. The guy behind this website. I love advertising, or to be more accurate, started liking it while learning it in the process of wanting an advertising job.',
+    'Unfortunately, while finding ads, i realised we don’t make too many great ones. And the ones which are so, don’t find a breakdown on its elements for an admirer to ponder on.',
+    'So, for folks like me, i created a ad curation list, where i handpick ads that work and attempt to reduce its subjectivity into words. Preferably in a few lines.']};
+var $=function(s){return document.querySelector(s)};
+function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
+var GLOBE='<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><ellipse cx="8" cy="8" rx="2.8" ry="6.2"/><path d="M1.8 8h12.4"/></svg>';
+var CHAKRA='<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><circle cx="8" cy="8" r=".8"/><path d="M8 1.8v12.4M1.8 8h12.4M3.6 3.6l8.8 8.8M12.4 3.6l-8.8 8.8"/></svg>';
+var FIL=[],CLR={India:'#b0102f',Global:'#4c1d95'},GRP=[['Market',['India','Global']]];
+function mk(b){return b.m=='i'?'India':'Global'}
+
+function card(b,i){
+ return '<a class="cd'+(b.img?'':' ni')+'" style="--c:'+(b.about?'#4c1d95':CLR[mk(b)])+'" href="#'+(b.about?'about':'ad-'+i)+'">'+
+ (b.img?'<img src="'+esc(b.img)+'" alt="" loading="lazy" onerror="this.parentNode.classList.add(\'ni\');this.remove()">':'')+
+ '<div class="ov"><h3>'+esc(b.t)+'</h3>'+(b.by?'<p class="by">'+esc(b.by)+'</p>':'')+(b.about?'':'<p class="mt">'+mk(b)+'</p>')+'</div></a>'}
+function cardsHTML(){
+ var a=BEST.map(function(b,i){return FIL.length&&FIL.indexOf(mk(b))<0?'':card(b,i)}).join('');
+ return a||'<p>Nothing matches this filter.</p>'}
+function chipsHTML(){return GRP.map(function(g){return '<div class="gp"><h4>'+g[0]+'</h4>'+g[1].map(function(v){return '<button type="button" class="fb" data-v="'+v+'" aria-pressed="'+(FIL.indexOf(v)>=0)+'" style="--c:'+CLR[v]+'"><i></i>'+v+'</button>'}).join('')+'</div>'}).join('')+'<div class="gp abt">'+card(ABOUT)+'</div>'}
+function adHTML(b){
+ var media=b.v?'<iframe src="'+esc(b.v)+'" title="'+esc(b.t)+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>':(b.img?'<img src="'+esc(b.img)+'" alt="">':'<div class="ph">'+(b.about?'Photo goes here':'Ad embed goes here')+'</div>');
+ return '<div class="bm"><div class="vf">'+media+'</div></div><div class="mr">'+(b.about?'':'<div class="mh">'+(b.nh?'':'<h1>'+esc(b.t)+'</h1>')+'<span class="tag">'+(b.m=='i'?CHAKRA+'Indian ad':GLOBE+'Global ad')+'</span></div>')+'<div class="bx'+(b.about?' pt':'')+'">'+(b.br?'<p class="br">Brand- '+esc(b.br)+'</p>':'')+(b.by?'<h2 class="bt">'+esc(b.by)+'</h2>':'')+
+ b.w.map(function(x){return x.charAt(0)=='#'?'<h3 class="st">'+esc(x.slice(1))+'</h3>':'<p>'+esc(x)+'</p>'}).join('')+
+ (b.ag?'<p class="ag">'+(b.ag[2]==null?'Check out the agency, ':b.ag[2])+esc(b.ag[0])+(b.ag[3]==null?'- ':b.ag[3])+'<a href="'+esc(b.ag[1])+'" target="_blank" rel="noopener">'+esc(b.ag[1])+'</a></p>':'')+
+ '</div></div>'}
+
+var main=$('#main'),sb=$('#sb'),md=$('#md'),mc=$('#mc'),mp=$('#mp'),openIdx=-1,pushed=false,lastFocus=null;
+function renderHome(){main.className="main hm";main.innerHTML='<div id="cards">'+cardsHTML()+'</div>';sb.innerHTML=chipsHTML()}
+function openAd(i){
+ if(openIdx===i)return;var b=i==='about'?ABOUT:BEST[i];
+ if(openIdx===-1)lastFocus=document.activeElement;
+ openIdx=i;mc.innerHTML=adHTML(b);md.setAttribute('aria-label',b.t);md.hidden=false;md.scrollTop=0;
+ document.title=b.t+" — Whyadswork?";$('#app').inert=true;document.documentElement.style.overflow='hidden';mp.focus({preventScroll:true})}
+function closeAd(){
+ if(openIdx===-1)return;openIdx=-1;pushed=false;md.hidden=true;mc.innerHTML='';
+ document.title="Whyadswork?";$('#app').inert=false;document.documentElement.style.overflow='';
+ if(lastFocus&&lastFocus.focus){try{lastFocus.focus({preventScroll:true})}catch(e){}}}
+function route(){var h=(location.hash||'').slice(1),m=/^ad-(\d+)$/.exec(h);if(h==='about')openAd('about');else if(m&&BEST[+m[1]])openAd(+m[1]);else closeAd()}
+function requestClose(){
+ if(openIdx===-1)return;
+ if(pushed){var k=openIdx;history.back();setTimeout(function(){if(openIdx===k&&(location.hash||'')==='#'+(k==='about'?'about':'ad-'+k))closeAd()},300)}
+ else{try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}closeAd()}}
+document.addEventListener("click",function(e){var t=e.target;
+ if(t===md||t.closest('.mx')){requestClose();return}
+ var b=t.closest('.fb');
+ if(b){var v=b.dataset.v,i=FIL.indexOf(v);if(i<0)FIL.push(v);else FIL.splice(i,1);sb.innerHTML=chipsHTML();$('#cards').innerHTML=cardsHTML();return}
+ var a=t.closest('a[href^="#"]');
+ if(a&&!(e.metaKey||e.ctrlKey||e.shiftKey)){e.preventDefault();var h=a.getAttribute('href').slice(1);
+  if(/^(ad-\d+|about)$/.test(h)){pushed=true;try{location.hash=h}catch(x){}route()}else requestClose()}});
+document.addEventListener("keydown",function(e){
+ if(openIdx===-1)return;
+ if(e.key=="Escape"){e.preventDefault();requestClose();return}
+ if(e.key=="Tab"){var f=md.querySelectorAll('.mx,a[href],iframe');if(!f.length)return;
+  var first=f[0],last=f[f.length-1],cur=document.activeElement;
+  if(e.shiftKey&&(cur===first||cur===mp)){e.preventDefault();last.focus()}
+  else if(!e.shiftKey&&cur===last){e.preventDefault();first.focus()}}});
+window.addEventListener("hashchange",route);
+renderHome();route();
+</script></body></html>
