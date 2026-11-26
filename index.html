@@ -107,6 +107,8 @@ var BEST=[{
  by:'',
  v:'',
  img:'noods.jpg',
+ pic:'noods_deleted.jpg',
+ alt:'The brand has deleted the ad from the official youtube channel :(',
  w:['1) A Woman talking about something “socially uncomfortable”. Especially something mildly related to sexuality.',
     '2) “While send noods” gets your attention. Hyper Exaggeration and deliberate awkward delivery at key points, keeps you there and directs your attention towards the brand.',
     '3) Saying a mispronounced word to make fun of something, is a seventh grader thing, that we all liked.'],
@@ -175,7 +177,7 @@ function cardsHTML(){
  return a||'<p>Nothing matches this filter.</p>'}
 function chipsHTML(){return GRP.map(function(g){return '<div class="gp"><h4>'+g[0]+'</h4>'+g[1].map(function(v){return '<button type="button" class="fb" data-v="'+v+'" aria-pressed="'+(FIL.indexOf(v)>=0)+'" style="--c:'+CLR[v]+'"><i></i>'+v+'</button>'}).join('')+'</div>'}).join('')+'<div class="gp abt">'+card(ABOUT)+'</div>'}
 function adHTML(b){
- var media=b.v?'<iframe src="'+esc(b.v)+'" title="'+esc(b.t)+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>':(b.img?'<img src="'+esc(b.img)+'" alt="">':'<div class="ph">'+(b.about?'Photo goes here':'Ad embed goes here')+'</div>');
+ var media=b.v?'<iframe src="'+esc(b.v)+'" title="'+esc(b.t)+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>':((b.pic||b.img)?'<img src="'+esc(b.pic||b.img)+'" alt="'+esc(b.alt||'')+'">':'<div class="ph">'+(b.about?'Photo goes here':'Ad embed goes here')+'</div>');
  return '<div class="bm"><div class="vf">'+media+'</div></div><div class="mr">'+(b.about?'':'<div class="mh">'+(b.nh?'':'<h1>'+esc(b.t)+'</h1>')+'<span class="tag">'+(b.m=='i'?CHAKRA+'Indian ad':GLOBE+'Global ad')+'</span></div>')+'<div class="bx'+(b.about?' pt':'')+'">'+(b.br?'<p class="br">Brand- '+esc(b.br)+'</p>':'')+(b.by?'<h2 class="bt">'+esc(b.by)+'</h2>':'')+
  b.w.map(function(x){return x.charAt(0)=='#'?'<h3 class="st">'+esc(x.slice(1))+'</h3>':'<p>'+esc(x)+'</p>'}).join('')+
  (b.ag?'<p class="ag">'+(b.ag[2]==null?'Check out the agency, ':b.ag[2])+esc(b.ag[0])+(b.ag[3]==null?'- ':b.ag[3])+'<a href="'+esc(b.ag[1])+'" target="_blank" rel="noopener">'+esc(b.ag[1])+'</a></p>':'')+
