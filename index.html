@@ -51,6 +51,8 @@ h1{font:600 clamp(28px,4vw,42px)/1.12 var(--serif);letter-spacing:-.025em;margin
 .vf{position:relative;width:100%;aspect-ratio:16/9;background:#000}
 .vf img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .vf iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vf.ig{aspect-ratio:auto;width:min(100%,400px);height:min(72vh,640px);margin:0 auto;background:#fff}
+@media(max-width:819px){.vf.ig{height:46vh}}
 .vf .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font:12px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.75);background:var(--nb)}
 .mr{flex:1 1 0;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;font-size:16px;line-height:1.7}
 .mh{padding:24px 26px 0}.mh h1{margin:0 0 12px;font-size:clamp(22px,2.4vw,28px)}.mh .tag{margin:0 0 20px}
@@ -59,6 +61,8 @@ h1{font:600 clamp(28px,4vw,42px)/1.12 var(--serif);letter-spacing:-.025em;margin
 .bx .st{margin:30px 0 8px;font:700 16.5px/1.4 var(--serif)}.bx .st:first-child{margin-top:0}
 .bx p{margin:0 0 18px}.bx p:last-child{margin-bottom:0}
 .bx .br{margin:0 0 22px;padding-bottom:16px;border-bottom:2px solid #000;font-weight:600;overflow-wrap:anywhere}
+.bx .mg{margin:0;padding-left:14px;border-left:3px solid var(--cr);font-size:14.5px;line-height:1.6;color:var(--mute)}.bx .mg b{display:block;margin:0 0 8px;font:700 11px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:#000}.bx .mg p{margin:0 0 10px}.bx .mg p:last-child{margin-bottom:0}
+.bx .br a,.bx .ag a{text-decoration-color:var(--cr);text-decoration-thickness:2px;text-underline-offset:4px}
 .bx .ag{margin-top:30px;padding-top:20px;border-top:2px solid #000;font-weight:600;overflow-wrap:anywhere}
 
 @media(max-width:860px){.abt{max-width:320px}#app{grid-template-columns:minmax(0,1fr)}#hd{padding:16px;margin-bottom:16px}.hr i{display:none}#sb{position:static;max-height:none;padding:0 16px 16px}.main.hm{padding:0 16px 60px}#sb .lk{display:flex;overflow-x:auto;gap:14px}#sb .lk a{white-space:nowrap}.main{padding-top:36px}}
@@ -107,7 +111,7 @@ var BEST=[{
  by:'',
  v:'',
  img:'noods.jpg',
- pic:'noods_deleted.jpg',
+ pic:'ad_deleted.jpg',
  alt:'The brand has deleted the ad from the official youtube channel :(',
  w:['1) A Woman talking about something “socially uncomfortable”. Especially something mildly related to sexuality.',
     '2) “While send noods” gets your attention. Hyper Exaggeration and deliberate awkward delivery at key points, keeps you there and directs your attention towards the brand.',
@@ -136,7 +140,7 @@ var BEST=[{
     '#6. The structure underneath',
     'Make an enemy. Show how they are a problem. And then give them your solution at last.',
     '“Your” (personalization) way out of “their” (good cop, bad cop) system.'],
- ag:['Isle of any, agency','https://isleofany.com/','',': ']
+ ag:['Isle of any','https://isleofany.com/','',': ']
 },{
  m:'g',
  t:'A celebrity “story”',
@@ -153,7 +157,49 @@ var BEST=[{
     '#3. When the rules say, “make a small 2-word tagline for the ad”, you go 9 words.',
     'An interesting idea here is: doctors don’t make bodies, but rebuild them, let’s say.',
     'Especially using “build” gives more authority in the mix.'],
- ag:['Mother London, Agency','https://www.motherlondon.com/work/figs-team-usa','','- ']
+ ag:['Mother London','https://www.motherlondon.com/work/figs-team-usa','','- ']
+},{
+ m:'g',
+ t:'Relating the masses with their own weird.',
+ br:'Bankwest',
+ brl:'https://www.instagram.com/bankwest/reels/',
+ by:'',
+ v:'https://www.instagram.com/reel/DgEXW1cBHlu/embed/',
+ img:'casual_tragedy_.jpg',
+ w:['#1. One idea',
+    'This iteration-',
+    'One idea- risk averseness. Or loss aversion associated with risk in the second order thinking—The fear the you can lose something by not managing risk on your credit card.',
+    '#2. Specific',
+    'Specific. Specific in everyday person’s vocab. In a everyday, weird/ funny way. Which is, visually, shown by using not models but normal people. The displayed video is the continuation of campaign.',
+    '#3. New design',
+    'New design idea. Or rather a new design idea, that first catches eye than tells you what it means.',
+    'Using coloured boxes with texts, differing in proportionality along with animation. “Enough” to show you the idea. And notice, that too, without real images inside it.'],
+ ag:['Bear Meets Eagle On Fire','https://beareaglefire.com/work/bankwest-just-enough-bank/'],
+ ig:['#inception campaign ( inside agency page)',
+    'One idea- save time. Fast- ness. Something bezos says wouldn’t change of what customers want out of you. Ever.',
+    'The inception also had the storytelling element of quoting strict numbers to one’s everyday activities- which, in a good sense, nobody does. therefore, it stood out.']
+},{
+ m:'g',
+ t:'Passion unites people. passion of any kind.',
+ br:'Nike',
+ brl:'https://about.nike.com/en-GB/newsroom/releases/great-athletes-remind-the-world-theres-nothing-wrong-with-wanting-to-win',
+ by:'',
+ v:'',
+ img:'NIKE.jpg',
+ pic:'ad_deleted.jpg',
+ alt:'The brand has deleted the ad from the official youtube channel :(',
+ w:['#1. Familiarity principle.',
+    'A famous Actor’s voice, all famous athletes, the passion to strive and win, the focus’s flow state, the script that is a combination of “an inner monologue that represents human emotions when its striving for something” and “ the before and after reflection and pondering over that moment.”',
+    'All of these are not new. are relatable. Or rather passionate-fully, comfortable for us.',
+    '#2. Script-',
+    'The opening line, “Am i bad person?” shows guilt that is less addressed in the media than it is felt for all of us. ( in any context at all)',
+    'The inner monologue is simply questioning itself, but at the same time, using tonal differences, asserting what needs to; as if the voice is self conscious, and at the same time, self admitting and too proud of one’s feelings, too. catching the core human emotion behind wanting success- you can call it “greed” or “want” or something else.',
+    'it is animalistic and in front of you.',
+    '#3. Theatrical music-',
+    'The silent but usual killer— flowing as low, high, low and high again, at the end.',
+    '#4. Scarcity principle-',
+    'And offcourse, “the cult like phrasing/admissal of scarcity and barrier to entrance to “winning” itself in the phrasing “ Winning isn’t for everyone.”, catches human psychology.'],
+ ag:['Wieden+Kennedy','https://www.wk.com/work/nike-2024-olympics']
 }];
 
 /* The static card about me, pinned in the left margin. Put your photo's file name (or link) in img. */
@@ -166,6 +212,7 @@ function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").repl
 var GLOBE='<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><ellipse cx="8" cy="8" rx="2.8" ry="6.2"/><path d="M1.8 8h12.4"/></svg>';
 var CHAKRA='<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><circle cx="8" cy="8" r=".8"/><path d="M8 1.8v12.4M1.8 8h12.4M3.6 3.6l8.8 8.8M12.4 3.6l-8.8 8.8"/></svg>';
 var FIL=[],CLR={India:'#b0102f',Global:'#4c1d95'},GRP=[['Market',['India','Global']]];
+function brandUrl(b){if(b.brl)return b.brl;var m=/youtube\.com\/embed\/([\w-]+)/.exec(b.v||'');return m?'https://www.youtube.com/watch?v='+m[1]:''}
 function mk(b){return b.m=='i'?'India':'Global'}
 
 function card(b,i){
@@ -178,9 +225,9 @@ function cardsHTML(){
 function chipsHTML(){return GRP.map(function(g){return '<div class="gp"><h4>'+g[0]+'</h4>'+g[1].map(function(v){return '<button type="button" class="fb" data-v="'+v+'" aria-pressed="'+(FIL.indexOf(v)>=0)+'" style="--c:'+CLR[v]+'"><i></i>'+v+'</button>'}).join('')+'</div>'}).join('')+'<div class="gp abt">'+card(ABOUT)+'</div>'}
 function adHTML(b){
  var media=b.v?'<iframe src="'+esc(b.v)+'" title="'+esc(b.t)+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>':((b.pic||b.img)?'<img src="'+esc(b.pic||b.img)+'" alt="'+esc(b.alt||'')+'">':'<div class="ph">'+(b.about?'Photo goes here':'Ad embed goes here')+'</div>');
- return '<div class="bm"><div class="vf">'+media+'</div></div><div class="mr">'+(b.about?'':'<div class="mh">'+(b.nh?'':'<h1>'+esc(b.t)+'</h1>')+'<span class="tag">'+(b.m=='i'?CHAKRA+'Indian ad':GLOBE+'Global ad')+'</span></div>')+'<div class="bx'+(b.about?' pt':'')+'">'+(b.br?'<p class="br">Brand- '+esc(b.br)+'</p>':'')+(b.by?'<h2 class="bt">'+esc(b.by)+'</h2>':'')+
+ return '<div class="bm"><div class="vf'+(/instagram\.com/.test(b.v||'')?' ig':'')+'">'+media+'</div></div><div class="mr">'+(b.about?'':'<div class="mh">'+(b.nh?'':'<h1>'+esc(b.t)+'</h1>')+'<span class="tag">'+(b.m=='i'?CHAKRA+'Indian ad':GLOBE+'Global ad')+'</span></div>')+'<div class="bx'+(b.about?' pt':'')+'">'+(b.br?'<p class="br">Brand’s Credit- '+(brandUrl(b)?'<a href="'+esc(brandUrl(b))+'" target="_blank" rel="noopener">'+esc(b.br)+'</a>':esc(b.br))+'</p>':'')+(b.by?'<h2 class="bt">'+esc(b.by)+'</h2>':'')+
  b.w.map(function(x){return x.charAt(0)=='#'?'<h3 class="st">'+esc(x.slice(1))+'</h3>':'<p>'+esc(x)+'</p>'}).join('')+
- (b.ag?'<p class="ag">'+(b.ag[2]==null?'Check out the agency, ':b.ag[2])+esc(b.ag[0])+(b.ag[3]==null?'- ':b.ag[3])+'<a href="'+esc(b.ag[1])+'" target="_blank" rel="noopener">'+esc(b.ag[1])+'</a></p>':'')+
+ (b.ag?'<p class="ag">'+'Agency’s Credit- '+'<a href="'+esc(b.ag[1])+'" target="_blank" rel="noopener">'+esc(b.ag[0])+'</a></p>':'')+(b.ig?'<div class="mg">'+b.ig.map(function(x){return x.charAt(0)=='#'?'<b>'+esc(x.slice(1))+'</b>':'<p>'+esc(x)+'</p>'}).join('')+'</div>':'')+
  '</div></div>'}
 
 var main=$('#main'),sb=$('#sb'),md=$('#md'),mc=$('#mc'),mp=$('#mp'),openIdx=-1,pushed=false,lastFocus=null;
@@ -215,9 +262,4 @@ document.addEventListener("keydown",function(e){
   else if(!e.shiftKey&&cur===last){e.preventDefault();first.focus()}}});
 window.addEventListener("hashchange",route);
 renderHome();route();
-</script>
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
-</body></html>
+</script></body></html>
